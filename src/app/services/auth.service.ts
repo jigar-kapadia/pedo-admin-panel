@@ -10,33 +10,33 @@ export class AuthService {
   public token: string;
   constructor(private http : Http) {
     // set token if saved in local storage
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    // var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // this.token = currentUser && currentUser.token;
    }
 
-   login(loginModel : Login) : Observable<boolean>{
-     return this.http.post('http://localhost:51743/api/login/AuthenticateUser',loginModel)
-     .map((response : Response)=>{
-       // login successful if there's a jwt token in the response
-       let token = response.json();//&& reposone.json().token;
+  //  login(loginModel : Login) : Observable<boolean>{
+  //    return this.http.post('http://localhost:51743/api/login/AuthenticateUser',loginModel)
+  //    .map((response : Response)=>{
+  //      // login successful if there's a jwt token in the response
+  //      let token = response.json();//&& reposone.json().token;
 
-       if(token)
-        {
-          console.log(token);
-          // set token property
-          this.token = token;
-          //store jwt token with username in local storage to keep user logged in between page refreshes  
-          localStorage.setItem('currentUser', JSON.stringify({ username: loginModel.username, token: token }));
-          // return true to indicate successful login
-          return true;
-        }
-        else 
-        {
-          // return false to indicate failed login
-          return true;
-        }
-     })
-   }
+  //      if(token)
+  //       {
+  //         console.log(token);
+  //         // set token property
+  //         this.token = token;
+  //         //store jwt token with username in local storage to keep user logged in between page refreshes  
+  //         localStorage.setItem('currentUser', JSON.stringify({ username: loginModel.username, token: token }));
+  //         // return true to indicate successful login
+  //         return true;
+  //       }
+  //       else 
+  //       {
+  //         // return false to indicate failed login
+  //         return true;
+  //       }
+  //    })
+  //  }
 
    logout() : void{
     // clear token remove user from local storage to log user out
