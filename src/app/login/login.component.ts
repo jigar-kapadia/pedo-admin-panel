@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.model = new Login();
-    this.loginService.logout();
+    //this.loginService.logout();
   }
 
   Aunthenticate(){//(loginModel : Login) : void{

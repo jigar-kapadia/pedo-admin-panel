@@ -33,7 +33,7 @@ export class AuthService {
         else 
         {
           // return false to indicate failed login
-          return false;
+          return true;
         }
      })
    }
